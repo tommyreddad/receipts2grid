@@ -18,7 +18,7 @@ def get_addresses_from_receipt(doc):
         except ValueError as e:
             print("Failed to parse page {}: {}".format(i + 1, e))
             continue
-        addresses.append(words[start:end].upper())
+        addresses.append(words[start:end])
     return addresses
 
 
@@ -97,7 +97,7 @@ def main():
         width, height = height, width
 
     # extract addresses from the input file
-    #addresses = []
+    # addresses = []
     with fitz.open(args.filepath) as receipt_doc:
         addresses = get_addresses_from_receipt(doc=receipt_doc)
 
